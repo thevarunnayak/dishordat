@@ -6,6 +6,7 @@ import {
   NavigationMenu,
   NavigationMenuContent,
   NavigationMenuItem,
+  NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
@@ -22,9 +23,10 @@ import {
   LogOut,
 } from "lucide-react";
 import Image from "next/image";
+import { User } from "@supabase/supabase-js";
 
 interface Props {
-  user: any;
+  user: User | null;
 }
 
 export default function NavBarContent({ user }: Props) {
@@ -151,12 +153,14 @@ function NavItem({
   children: React.ReactNode;
 }) {
   return (
-    <Link
-      href={href}
-      className="flex items-center gap-2 text-muted-foreground hover:text-primary transition"
-    >
-      {icon}
-      {children}
-    </Link>
+    <NavigationMenuLink asChild>
+      <Link
+        href={href}
+        className="flex items-center gap-2 text-muted-foreground hover:text-primary transition"
+      >
+        {icon}
+        {children}
+      </Link>
+    </NavigationMenuLink>
   );
 }

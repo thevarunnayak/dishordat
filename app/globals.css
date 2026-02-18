@@ -74,7 +74,7 @@
   --popover: oklch(0.1739 0.0086 84.5628);
   --popover-foreground: oklch(0.9103 0.0161 73.6717);
 
-  --primary: rgb(217, 119, 6);
+  --primary: oklch(0.6532 0.1773 54.3496);
   --primary-foreground: oklch(0.1860 0.0309 67.2593);
 
   --secondary: oklch(0.2295 0.0166 79.3855);
@@ -179,3 +179,10 @@
     transition: background 0.2s ease, color 0.2s ease;
   }
 }
+
+@layer utilities {
+  .max-w-8xl {
+    max-width: 90rem !important;  /* 1440px */
+  }
+}
+
